@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Cossie Play</title>
+<!-- TemplateEndEditable -->
+
+
+<!-- TemplateBeginEditable name="head" -->
+
+<link href="../css/masterstyle.css" rel="stylesheet" type="text/css">
+<!-- TemplateEndEditable -->
+</head>
+<body>
+<!-- TemplateBeginEditable name="body" -->
+
+<p id="banner">COSSIE PLAY</p><br>
+<p id="nav_bar"><table id="menutable" style="table-layout:fixed;">
+  <tbody>
+    <tr><a href="../index.html"><td onclick="location.href='../index.html'" class="nav_bar_td">Home</td></a>
+	<a href="../about_us.html"><td onclick="location.href='../about_us.html'" class="nav_bar_td">About</td></a>
+      <a href="../costumes.html"><td onclick="location.href='../costumes.html'" class="nav_bar_td">Costumes</td></a>
+      <a href="../cosplay_party.html"><td onclick="location.href='../cosplay_party.html'" class="nav_bar_td">Party</td></a>
+      <a href="../contact.html"><td onclick="location.href='../contact.html'" class="nav_bar_td">Contact</td></a>
+	  <a href="../links.html"><td onclick="location.href='../links.html'" class="nav_bar_td">Links</td></a>
+    </tr>
+  </tbody>
+</table>
+</p>
+	
+<p id="content"> This is content </p>
+<p id="footer">Jinsup Song @ JCU SINGAPORE 2017</p>
+<!-- TemplateEndEditable -->
+</body>
+</html>

@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+#banner
+{
+	font:Segoe, Segoe UI, DejaVu Sans, Trebuchet MS, Verdana," sans-serif";
+	font-size:40px;
+	background-color:antiquewhite;
+	text-align:center;
+	font-weight: bolder;
+	font-style: oblique;
+	border-bottom: 3px solid; border-bottom-color:forestgreen;
+		border-top: 3px solid; border-top-color:forestgreen;
+}
+
+
+
+#nav_bar
+{
+	font-size:1px;
+
+}
+
+body
+{
+	background-color:#DBCF80;
+}
+
+table
+{
+	border: 2px;
+	border-style:ridge;
+	height:35px; 
+	width:500px;
+	background-color:beige;
+	text-align:center;
+}
+
+#content
+{
+	font-size:20px;
+
+}
+
+h1
+{
+	text-align:left;
+	font:Segoe, Segoe UI, DejaVu Sans, Trebuchet MS, Verdana," sans-serif";
+}
+h2
+{
+	color:darkcyan;
+	background-color:azure;
+}
+
+#footer
+{
+	font-size:10px;
+}
