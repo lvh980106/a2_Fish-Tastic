@@ -1,0 +1,298 @@
+/********* px-video.css ************/
+
+/* utilities */
+.sr-only {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+.show-inline {
+  display: inline-block;
+}
+
+/* containers */
+.px-video-img-captions-container * {
+  box-sizing: border-box;
+}
+.px-video-img-captions-container {
+  position: relative;
+  background-color: #FFF;
+}
+.px-video-container {
+  position: relative;
+}
+.px-video-container .loading-spinner {
+  background: no-repeat url('https://www.paypalobjects.com/webstatic/es_MX/mktg/logos-buttons/redesign/loading.gif');
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 45px;
+  height: 45px;
+  margin-left: -30px;
+  margin-top: -30px;
+  text-indent: -999em;
+  overflow: hidden;
+}
+
+/* progress indicator */
+.px-video-progress {
+  width: 100%;
+  height: 10px;
+}
+.px-video-progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  border: none;
+}
+.px-video-progress[value]::-webkit-progress-bar {
+  background-color: #E6E6E6;
+}
+.px-video-progress[value]::-webkit-progress-value {
+  background-color: #009CDF;
+}
+
+/* caption area */
+.px-video-captions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: .5em;
+  min-height: 2.5em;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.1em;
+  text-align: center;
+  opacity: 0.75;
+}
+
+/* buttons */
+.px-video-controls button {
+  border: 1px #fff solid;
+  background: transparent;
+  padding: 0;
+  margin: 0 5px;
+  min-width: 25px;
+  height: 20px;
+  overflow: hidden;
+  background: no-repeat url('https://www.paypalobjects.com/webstatic/mktg/wright/icons/px-video-sprite.png');
+}
+.px-video-controls button:focus {
+  border: 1px #999 dotted;
+  outline: none;
+}
+.px-video-controls button {
+  cursor: pointer;
+}
+button.px-video-restart {
+  margin-left: 0;
+}
+/* restart button */
+
+.px-video-controls button.px-video-restart {
+  background-position: -6px -333px;
+}
+.px-video-controls button.px-video-restart:hover,
+.px-video-controls button.px-video-restart:focus {
+  background-position: -6px -297px;
+}
+
+/* rewind button */
+.px-video-controls button.px-video-rewind {
+  background-position: -6px -189px;
+}
+.px-video-controls button.px-video-rewind:hover,
+.px-video-controls button.px-video-rewind:focus {
+  background-position: -6px -153px;
+}
+
+/* play button */
+.px-video-controls button.px-video-play {
+  background-position: -6px -45px;
+}
+.px-video-controls button.px-video-play:hover,
+.px-video-controls button.px-video-play:focus {
+  background-position: -6px -9px;
+}
+
+/* pause button */
+.px-video-controls button.px-video-pause {
+  background-position: -6px -117px;
+}
+.px-video-controls button.px-video-pause:hover,
+.px-video-controls button.px-video-pause:focus {
+  background-position: -6px -81px;
+}
+
+/* forward button */
+.px-video-controls button.px-video-forward {
+  background-position: -6px -261px;
+}
+.px-video-controls button.px-video-forward:hover,
+.px-video-controls button.px-video-forward:focus {
+  background-position: -6px -225px;
+}
+
+/* captions button */
+.px-video-captions-btn-container label {
+  display: inline-block;
+  width: 25px;
+  height: 20px;
+  margin-left: 25px;
+  background: no-repeat url('https://www.paypalobjects.com/webstatic/mktg/wright/icons/px-video-sprite.png');
+  background-position: -6px -835px;
+}
+.px-video-captions-btn-container input[type="checkbox"]:focus+label {
+  outline: 1px #999 dotted;
+  background-position: -6px -799px;
+}
+.px-video-captions-btn-container input[type="checkbox"]:hover+label {
+  background-position: -6px -799px;
+  cursor: pointer;
+}
+.px-video-captions-btn-container input[type="checkbox"]:focus+label {
+  outline: 1px #999 dotted;
+  background-position: -6px -799px;
+}
+.px-video-captions-btn-container input[type="checkbox"]:checked+label {
+  background-position: -6px -871px;
+}
+
+/* mute button */
+.px-video-mute-btn-container label {
+  display: inline-block;
+  width: 25px;
+  height: 20px;
+  margin-left: 240px;
+  margin-top: 2px;
+  background: no-repeat url('https://www.paypalobjects.com/webstatic/mktg/wright/icons/px-video-sprite.png');
+  background-position: -6px -476px;
+}
+.px-video-mute-btn-container input[type="checkbox"]:focus+label {
+  outline: 1px #999 dotted;
+  background-position: -6px -440px;
+}
+.px-video-mute-btn-container input[type="checkbox"]:hover+label {
+  background-position: -6px -440px;
+  cursor: pointer;
+}
+.px-video-mute-btn-container input[type="checkbox"]:focus+label {
+  outline: 1px #999 dotted;
+  background-position: -6px -440px;
+}
+/* checked state of mute button */
+.px-video-mute-btn-container input[type="checkbox"]:checked+label {
+  background-position: -6px -692px;
+}
+.px-video-mute-btn-container input[type="checkbox"]:checked:hover+label,
+.px-video-mute-btn-container input[type="checkbox"]:checked:focus+label {
+  background-position: -6px -656px;
+}
+
+/* volume range input */
+.px-video-controls input[type='range'] {
+  -webkit-appearance: none;
+  height: 6px;
+  width: 100px;
+  margin-top: 8px;
+  background-color: #E6E6E6;
+  outline:none;
+}
+.px-video-controls input[type='range']:focus::-webkit-slider-thumb {
+  outline: 1px #999 dotted;
+}
+.px-video-controls input[type='range']::-moz-range-track {
+  -moz-appearance: none;
+  height: 6px;
+  background-color: #E6E6E6;
+  border: none;
+}
+.px-video-controls input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  height: 10px;
+  width: 6px;
+  background-color: #666;
+}
+.px-video-controls input[type='range']::-moz-range-thumb {
+  height: 12px;
+  width: 8px;
+}
+/* fixing display for IE10+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .px-video-controls input[type='range'] {
+    position: relative;
+    padding: 0;
+    height: 8px;
+    top: -3px;
+  }
+  .px-video-time {
+    margin-top: 4px;
+  }
+  .px-video-captions {
+    padding: 8px;
+    min-height: 36px;
+  }
+}
+
+/* Fullscreen styles */
+.px-video-fullscreen-btn-container label {
+  display: inline-block;
+  width: 25px;
+  height: 20px;
+  margin: 0 10px;
+  background: no-repeat url('https://www.paypalobjects.com/webstatic/mktg/wright/icons/px-video-sprite.png');
+  background-position: -6px -907px;
+}
+.px-video-fullscreen-btn-container input[type="checkbox"]:focus+label {
+  outline: 1px #999 dotted;
+  background-position: -6px -943px;
+}
+.px-video-fullscreen-btn-container input[type="checkbox"]:hover+label {
+  background-position: -6px -943px;
+  cursor: pointer;
+}
+.px-video-fullscreen-btn-container input[type="checkbox"]:focus+label {
+  outline: 1px #999 dotted;
+  background-position: -6px -943px;
+}
+.px-video-fullscreen-btn-container input[type="checkbox"]:checked+label {
+  background-position: -6px -979px;
+}
+.px-video-fullscreen-btn-container input[type="checkbox"]:checked:hover+label {
+  background-position: -6px -1015px;
+}
+.px-video-container.fullscreen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-cursor-visibility: auto-hide;
+}
+.display-inline {
+  display: inline-block;
+  vertical-align: top;
+}
+/* style applied through js */
+.px-video-controls.js-fullscreen-controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 940;
+  background: white;
+  text-align: center;
+}
+
+  .px-video-captions.js-fullscreen-captions {
+  min-height: 3.5em;
+  font-size: 2.5em;
+  padding: 1em;
+}
+
+.pal-blue{background-color:#009cde}.pay-blue{background-color:#003087}.pink{background-color:#de0063}.purple{background-color:#640487}.green{background-color:#00cf92}.orange{background-color:#ff9600}.green,.green *,.orange,.orange *,.pal-blue *,.pay-blue *,.pink,.pink *,.purple,.purple *{color:#fff}.hero-bg{background-image:url(https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/SG/home/hero-hp-1.jpg)}html[data-device-type=mobile] .hero-bg{background-position:right top}html[data-device-type=portable] .hero-bg{background-position:80% top}.row-fluid .content-block{min-height:540px;-moz-box-sizing:border-box;box-sizing:border-box}h1{text-shadow:0 0 10pc #000}.hero .btn{min-width:260px;max-width:321px;width:89%}html[data-device-type=dedicated] .hero .btn{width:32%}html[data-device-type=mobile] .hero .btn{display:block;margin:0 auto;-webkit-touch-callout:none}#n1{box-shadow:0 -1px rgba(0,0,0,.1)}#n1 .how-paypal-works{margin-left:0;margin-top:20px}.n1{background-image:url(https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/shared/home/singapore-app-new.jpg)}.n3,.n3.parallax .parallax-bg{background-image:url(https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/shared/home/editorial-ver2.jpg);background-position:0 0}.n2,.n2.parallax .parallax-bg{background-image:url(https://www.paypalobjects.com/webstatic/en_SG/mktg/wright/home/home_n2_1x.jpg)}.n4,.n4.parallax .parallax-bg{background-image:url(https://www.paypalobjects.com/webstatic/mktg/wright/home/home_n4_1x.jpg)}html[data-device-type=mobile] h1{margin-top:0}html[data-device-type=mobile] .signup-subline{margin-top:0}html[data-device-type=mobile] .row-fluid .content-block{min-height:0}p.subPara{margin-top:15px}html[data-device-type=dedicated] .row-fluid .hero .span7{width:40.5%;margin-left:7%}.hero .span7 h3{width:70%;color:#767676}.hero .span7 h1{color:#009cde}html[data-device-type=mobile] h1{padding:3% 4% 0 2%}html[data-device-type=mobile] .row-fluid .span7{width:75.5%}html[data-device-type=mobile] .hero .span7 h3{width:90%}html[data-device-type=mobile] .n3{background-position:60% top}html[data-device-type=portable] .n3{background-position:30% top}@media (max-width:479px){html[data-device-type=mobile] .row-fluid .span7{width:95%}}@media only screen and (orientation:landscape){html[data-device-type=mobile] .hero-bg:not(.no-img) .editorial-cell{padding-top:64%}}html[data-device-type=portable] .hero-bg:before,html[data-device-type=dedicated] .hero-bg:before{content:"";width:0;height:0;border-style:solid;position:fixed;border-width:calc(288.1px) calc(30.96px) 0 0;border-color:transparent transparent transparent transparent;top:0;left:0;z-index:-1}html[data-device-type=portable] .hero-bg:after,html[data-device-type=dedicated] .hero-bg:after{content:"";width:0;height:0;border-style:solid;position:fixed;border-width:0 0 calc(288.1px) calc(30.96px);border-color:transparent transparent #91063d transparent;bottom:0;right:0;z-index:-1}html[data-device-type=mobile] .hero-bg:before{content:"";width:0;height:0;border-style:solid;position:fixed;border-width:calc(182.5px) calc(14.6px) 0 0;border-color:transparent transparent transparent transparent;top:0;left:0;z-index:-1}html[data-device-type=mobile] .hero-bg:after{content:"";width:0;height:0;border-style:solid;position:fixed;border-width:0 0 calc(182.5px) calc(14.6px);border-color:transparent transparent #91063d transparent;bottom:0;right:0;z-index:-1}html[data-device-type=mobile] .hero-bg.no-img:after,html[data-device-type=mobile] .hero-bg.no-img:before{content:none}.hero-bg h1{text-shadow:0 0 75pt rgba(0,0,0,.5);font-family:DharmaGothicE-RegularItalic,Helvetica Neue,Arial,sans-serif;text-transform:uppercase}.hero-bg .hatch .btn.btn-white{border-color:#fff}html[data-device-type=portable] .hero-bg h1{font-size:3.2rem;color:#fff;line-height:1}html[data-device-type=portable] .hero-bg a,html[data-device-type=portable] .hero-bg p{color:#fff}@media (max-width:768px) and (orientation:portrait){html[data-device-type=portable] .row-fluid .span7,html[data-device-type=portable] .row-fluid .span8{width:75.5%}}sup.trade-big{font-size:2rem;top:-.7em}sup.trade-small{font-size:7px;font-size:.5rem;top:-1.2em}html[data-device-type=dedicated] .hero-bg h1{font-size:56px;font-size:4rem;line-height:1;text-shadow:0 0 75pt rgba(0,0,0,.5);font-family:DharmaGothicE-RegularItalic,Helvetica Neue,Arial,sans-serif;text-transform:uppercase;color:#fff;padding-bottom:10px}html[data-device-type=dedicated] .hero-bg a,html[data-device-type=dedicated] .hero-bg p{color:#fff}html[data-device-type=mobile] sup.trade-big{font-size:2rem;top:-.27em}html[data-device-type=mobile] sup.trade-small{font-size:7px;font-size:.5rem;top:-1.2em}html[data-device-type=mobile] .hero-bg .btn-white.btn{border:1px solid #0070ba;color:#0070ba}html[data-device-type=mobile] .btn.btn-white-border .icon-play-media:before{border:15px solid #0070ba}html[data-device-type=mobile] .btn.btn-white-border .icon-play-media:after{border-left:7px solid #fff}html[data-device-type=mobile] .hero-bg:after{position:absolute;top:103px}@media screen\0{html[data-device-type=dedicated] .hero-bg:after,html[data-device-type=dedicated] .hero-bg:before{position:absolute}}@media (min-width:480px) and (orientation:landscape){html[data-device-type=mobile] .hero-bg{background-size:auto 415px}html[data-device-type=mobile] .hero-bg:after{position:absolute;top:233px}html[data-device-type=mobile] .hero-bg:not(.no-img) .editorial-cell{padding-top:415px}}.tickle-bar{padding:10px 0;font-size:18px}.tickle-bar .tickle-cell{text-align:center}@media (max-width:767px){.tickle-bar{font-size:15px}}html[data-device-type=mobile] .theme-background-color-light{background-color:#f7f9fa}@media (orientation:portrait){html[data-device-type=mobile] .tickle-bar .btn-blue-border{margin-top:10px}}.btn.btn-blue-border{width:20pc;max-width:340px}html[data-device-type=portable] .btn.btn-blue-border,html[data-device-type=dedicated] .btn.btn-blue-border{margin-left:30px}@media (orientation:landscape){html[data-device-type=mobile] .btn.btn-blue-border{width:250px;margin-left:20px}}@media (orientation:portrait){html[data-device-type=mobile] .btn.btn-blue-border{width:340px;margin-left:0}}@media (max-width:350px){html[data-device-type=mobile] .btn.btn-blue-border{width:290px}}.youtube-iframe{width:100%}html[data-device-type=mobile] .youtube-iframe{height:50%;top:25%;position:absolute}
+

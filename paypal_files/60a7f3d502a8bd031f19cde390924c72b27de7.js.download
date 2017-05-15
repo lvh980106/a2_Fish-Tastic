@@ -1,0 +1,130 @@
+/* global fpti, ga */
+/**
+ * Include this file in your page.dust to use you-tube videos
+ * Wiki: https://github.paypal.com/MPPContentDevelopment/MPPContent/wiki/YouTube-Videos
+ * Reference: https://developers.google.com/youtube/player_parameters?hl=en
+ */
+$(function() {
+
+    "use strict";
+
+    /**
+     * Read device information - dedicated, portable or mobile
+     */
+    var dt = $(document.documentElement).data("device-type");
+
+    /**
+     * On desktop, tablet or devices with width of atleast 768 px
+     * use half of window width. On mobile use 90% of device width
+     */
+    function getWidth() {
+        var windowWidth = $(window).width();
+        if (((dt === 'dedicated') || (dt === 'portable')) && (windowWidth > 768)) {
+            return windowWidth * 0.5;
+        } else {
+            return windowWidth * 0.9;
+        }
+    }
+
+    /**
+     * Calculate height from width using 16:9 ratio.
+     * Add 37 pixels to compensate for padding and title
+     * @param {number} width - width of video player modal
+     */
+    function getHeight(width) {
+        return (width * 9 / 16) + 37;
+    }
+
+    /**
+     * Set width and height
+     */
+    var playerWidth = getWidth();
+    var playerHeight = getHeight(playerWidth);
+
+    /**
+     * Create HTML for youtube player
+     */
+    $(".youtube-player").each(function() {
+        $(this).append('<div class="youtube-play"><img class="youtube-thumb" src="' + $(this).attr("img-src") + '"><div class="play-button"></div>');
+    });
+
+    /**
+     * Append iframe on play button click
+     * if iframe is not supported open in a new tab
+     */
+    $('.youtube-player .play-button').click(function() {
+        var videoId = $(this).parent().parent().attr('video-id');
+
+        if ("sandbox" in document.createElement("iframe")) { // iframe sandbox supported
+            $(this).parent().parent().html('<iframe sandbox="allow-scripts allow-same-origin" class="youtube-iframe" src="https://www.youtube-nocookie.com/embed/' + videoId + '?rel=0&autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=0&showinfo=0&hd=1&modestbranding=1" frameborder="0" allowfullscreen></iframe>');
+        } else {
+            window.open('https://www.youtube-nocookie.com/embed/' + videoId + '?rel=0&autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=0&showinfo=0&hd=1', '_blank', 'height=360,width=480');
+        }
+
+        _analyticsInfo(videoId);
+    });
+
+    /**
+     * Create container
+     */
+    $(".youtube-player-modal").each(function() {
+        $('body').append('<section id="' + $(this).attr("video-id") + '"></section>');
+    });
+
+    /**
+     * Create model element and embed video
+     */
+    $(".youtube-player-modal").on('click', function() {
+
+        var videoId = $(this).attr("video-id"),
+            width = $(this).attr('video-width') || playerWidth,
+            height = $(this).attr('video-height') || playerHeight,
+            videoInlineMobile = $(this).data('video-inline');
+
+        if ("sandbox" in document.createElement("iframe")) {
+            // creating modal and adding embedding video to it
+            var youtubeModal = new PAYPAL.Marketing.Modal('#' + videoId, { minHeight: height, minWidth: width });
+            youtubeModal.show();
+
+            if (dt === 'mobile') {
+                $(youtubeModal._$modal[0]).append('<iframe sandbox="allow-scripts allow-same-origin" class="youtube-iframe" src="https://www.youtube-nocookie.com/embed/' + videoId + '?rel=0&autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=0&showinfo=0&hd=1&modestbranding=1" frameborder="0" allowfullscreen></iframe>');
+
+            } else {
+                $(youtubeModal._$dialog[0]).html('<iframe sandbox="allow-scripts allow-same-origin" class="youtube-iframe" src="https://www.youtube-nocookie.com/embed/' + videoId + '?rel=0&autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=0&showinfo=0&hd=1&modestbranding=1" frameborder="0" allowfullscreen></iframe>');
+                // adjust the height of the iframe based on modal height
+                $('.ui-dialog .youtube-iframe').css('height', $(youtubeModal._$dialog[0]).height());
+            }
+            // stopping the video if modal is closed
+            $(window).on('MODAL_CLOSED', function(e, target) {
+                //$(target).find('iframe').remove();
+                var ytiFrame = $(target).find('iframe.youtube-iframe');
+                if (ytiFrame.length) {
+                    ytiFrame.remove();
+                }
+            });
+        } else {
+            // if browser does not support sandbox attr for iframe, open in a new window
+            window.open('https://www.youtube-nocookie.com/embed/' + videoId + '?rel=0&autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=0&showinfo=0&hd=1', '_blank', 'height=360,width=480');
+        }
+
+        _analyticsInfo(videoId);
+    });
+
+    /**
+     * Add Analytics
+     * @param {string} videoId - video id (from youtube)
+     */
+    function _analyticsInfo(videoId) {
+        //FPTI manual firing
+        fpti.link = "youtube-video-play|" + videoId;
+        if (PAYPAL !== null && PAYPAL.analytics !== null && PAYPAL.analytics.instance !== null) {
+            PAYPAL.analytics.instance.recordClick();
+        }
+
+        // Firing GA
+        if (typeof ga !== 'undefined' && ga !== null) {
+            ga('send', 'event', 'Video', 'youtube-video-play', videoId);
+        }
+    }
+});
+
