@@ -422,3 +422,13 @@ input[type=text], select, textarea, email {
     border-radius: 5px;
     padding: 20px;
 }
+
+.total ,.grandtotal{
+	font-size: 100%;
+    margin: 0;
+    font-style: normal;
+	font-weight: 100%;
+    padding: 4%;
+    background-color: white;
+	color:red;
+}
