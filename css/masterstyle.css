@@ -405,3 +405,20 @@ body {
 .content_head {
 	font-size:25px;
 }
+
+input[type=text], select, textarea, email {
+    width: 100%;
+	text-align:left;
+    padding: 0;
+    border: 0 solid white ;
+    border-radius: 0px;
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    resize: vertical;
+}
+
+.container {
+    border-radius: 5px;
+    padding: 20px;
+}
