@@ -14,19 +14,17 @@ function resetForm() {
     return resetChoice;
 }
 
-function showTotal(){
-	ItemCode = document.getElementById("ItemCode");
-quantity = document.getElementById("quantity");
-ttl = document.getElementById("total");
-	grandttl= document.getElementById("grandtotal");
-	if (ItemCode[ItemCode.selectedIndex].value !="" && quantity.value !=""){
-		var total=(ItemCode[ItemCode.selectedIndex].value * quantity.value).toFixed(2);
-		result=parseFloat(result)+parseFloat(total);
-	}
-		var text=ItemCode[ItemCode.selectedIndex].innerHTML+"   Quantity : "+quantity.value;
-		
-		ttl.innerHTML+=text+"<br/>";
-		grandttl.innerHTML=result;
-		quantity.value="";
-	}
-
+function showTotal() {
+ 	ItemCode = document.getElementById("ItemCode");
+ 	quantity = document.getElementById("quantity");
+ 	ttl = document.getElementById("total");
+ 	grandttl= document.getElementById("grandtotal");
+ 	if (ItemCode[ItemCode.selectedIndex].value !="" && quantity.value !=""){
+ 	var total=(ItemCode[ItemCode.selectedIndex].value * quantity.value).toFixed(2);
+ 	result=parseFloat(result)+parseFloat(total);}
+	var text=ItemCode[ItemCode.selectedIndex].innerHTML+"   Quantity : "+quantity.value;		
+ 	ttl.innerHTML+=text+"<br/>";
+ 	grandttl.innerHTML=result.toFixed(2);
+ 	quantity.value="";
+ 	}
+ 

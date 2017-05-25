@@ -21,7 +21,17 @@
 	50% { background-position:50% 100%; }
 	75% { background-position:0 50%; }
 	100% { background-position:50% 0; }
-	
+}
+
+@keyframes slideUp {
+    from {
+        opacity: .25;
+        line-height: 250px;
+    }
+    to {
+        opacity: 1;
+        line-height: 40px;
+    }
 }
 
 @keyframes imgTrans {
@@ -56,6 +66,14 @@
 	100% {color:white;}
 }
 
+@keyframes font_bounce {
+	0% {font-size:70px;}
+	25% {font-size:80px;}
+	50% {font-size:70px;}
+	75% {font-size:80px;}
+	100% {font-size:70px;}
+}
+
 @media screen and (max-width:960px) {
 	#nav_bar {
 		float:left;
@@ -76,6 +94,82 @@
 	.container table {
 		table-layout:auto;
 	}
+}
+
+input[type=text], select, textarea, email {
+    width: 100%;
+    text-align:left;
+    padding: 0;
+    border: 0 solid white ;
+    border-radius: 0px;
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    resize: vertical;
+}
+
+#feedback_container {	
+    border-radius: 5px;
+    padding: 20px;
+} 
+
+.total ,.grandtotal {
+ 	font-size: 100%;
+    margin: 0;
+    font-style: normal;
+ 	font-weight: 100%;
+    padding: 4%;
+    background-color: white;
+ 	color:red;
+}
+
+#cta {
+	position:absolute;
+	top:121px;
+	left:0;
+	right:0;
+	width:100%;
+	height:450px;
+	background-color:#528FB5;
+	background-image:url(../images/reefbg_trans.png);
+	z-index:997;
+}
+
+#cta2 {
+	width:100%; 
+	height:172px; 
+	background-color:dimgray; 
+	position:absolute; 
+	left:0; 
+	top:570px;
+}
+
+.cta2_td {
+	font-size:70px;
+	height:172px;
+	background-color:dimgray;
+	border-collapse:collapse;
+	border:0px;
+	font-weight:lighter;
+	color:white;
+}
+
+.cta2_td a {
+	text-decoration:none;
+	color:white;
+}
+
+.cta2_td:hover {
+	background-color:lightcoral;
+	cursor:pointer;
+	animation:font_bounce 4s linear infinite;
+}
+
+#cta_text {
+	color:white;
+	text-align:center;
+	font-size:60px;
+	font-weight:lighter;
 }
 
 #orderTable {
@@ -371,16 +465,7 @@ body {
 	animation-duration:0;
 	animation-iteration-count:1;
 	aniation-timing-function:ease;
-	word-break:break-all;
-}
-
-.content_table:hover {
-	color:white;
-	background-color:#528FB5
-}
-
-.content_table:hover .emphasizeSpan {
-	color:black;
+	word-break:NORMAL;
 }
 
 #toTop {
@@ -391,44 +476,23 @@ body {
 	font-weight:bolder;
 	color:white;
 	font-style:oblique;
+	z-index:998;
 }
 
 .headline {
 	font-size:35px;
 	font-style:italic;
-	animation-name:slideLeft;
-	animation-duration:0s;
+	animation-name:slideUp;
+	animation-duration:1s;
 	animation-iteration-count:1;
 	aniation-timing-function:ease;
 }
 
+.headline a {
+	text-decoration:none;
+	color:white;
+}
+
 .content_head {
 	font-size:25px;
-}
-
-input[type=text], select, textarea, email {
-    width: 100%;
-	text-align:left;
-    padding: 0;
-    border: 0 solid white ;
-    border-radius: 0px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    resize: vertical;
-}
-
-.container {
-    border-radius: 5px;
-    padding: 20px;
-}
-
-.total ,.grandtotal{
-	font-size: 100%;
-    margin: 0;
-    font-style: normal;
-	font-weight: 100%;
-    padding: 4%;
-    background-color: white;
-	color:red;
 }
