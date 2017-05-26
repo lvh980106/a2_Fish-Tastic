@@ -76,7 +76,6 @@
 
 @media screen and (max-width:960px) {
 	#nav_bar {
-		float:left;
 		position:none;
 		top:0;
 		left:0;
@@ -113,7 +112,7 @@ input[type=text], select, textarea, email {
     padding: 20px;
 } 
 
-.total ,.grandtotal {
+.total, .grandtotal {
  	font-size: 100%;
     margin: 0;
     font-style: normal;
@@ -151,7 +150,8 @@ input[type=text], select, textarea, email {
 	border-collapse:collapse;
 	border:0px;
 	font-weight:lighter;
-	color:white;
+	color:white;	
+	white-space:nowrap;
 }
 
 .cta2_td a {
@@ -167,6 +167,7 @@ input[type=text], select, textarea, email {
 
 #cta_text {
 	color:white;
+	white-space:nowrap;
 	text-align:center;
 	font-size:60px;
 	font-weight:lighter;
